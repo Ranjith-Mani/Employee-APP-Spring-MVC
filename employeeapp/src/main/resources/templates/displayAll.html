@@ -1,0 +1,75 @@
+<!--HTML file which is used to display all the employees details-->
+<!DOCTYPE html>
+<!--Importing thymeleaf-->
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>All Employees</title>
+</head>
+
+<!--Internal CSS-->
+<style>
+    table,th,td
+    {
+    border: solid black 1px;
+    border-collapse: collapse;
+    text-align: center;
+    margin-left: 19.5%;
+    }
+
+    h1
+    {
+    text-align: center;
+    background-color: white;
+    text-shadow: 2px 2px 5px grey;
+    }
+
+    a
+    {
+    margin-left: 40%;
+    margin-bottom: 50%;
+    }
+
+    div
+    {
+    border: solid black 1px;
+    width: 50%;
+    margin-left: 25.5%;
+    margin-top: 15%;
+    background-color: lightgrey;
+    box-shadow: 10px 10px black;
+    }
+
+    body
+    {
+    background-color: grey;
+    }
+</style>
+
+<body>
+<div>
+<h1>List of Employees</h1>
+<table>
+    <tr>
+        <th>Employee ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Location</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="employee : ${employees}">
+        <td th:text="${employee.employeeId}"></td>
+        <td th:text="${employee.name}"></td>
+        <td th:text="${employee.email}"></td>
+        <td th:text="${employee.location}"></td>
+        <td>
+            <a th:href="@{/display/{employeeId}(employeeId=${employee.employeeId})}">View</a>
+        </td>
+    </tr>
+</table><br/>
+
+    <!--Link which is used to Add New Employee-->
+    <a href="/">Add New Employee</a>
+
+</div>
+</body>
+</html>

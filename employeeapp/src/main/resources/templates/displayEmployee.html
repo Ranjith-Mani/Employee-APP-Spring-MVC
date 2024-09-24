@@ -1,0 +1,48 @@
+<!--HTML file which is used to display an employee by using EMPLOYEE ID-->
+<!DOCTYPE html>
+<!--Importing thymeleaf-->
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Employee Details</title>
+</head>
+
+<!--Internal CSS-->
+<style>
+    div
+    {
+    border: solid black 1px;
+    width: 25%;
+    text-align: center;
+    margin-left: 38%;
+    margin-top: 10%;
+    background-color: lightgrey;
+    margin-bottom: 15%;
+    box-shadow: 10px 10px black;
+    }
+
+    h1
+    {
+    background-color: white;
+    text-shadow: 2px 2px 5px grey;
+    }
+
+    body
+    {
+    background-color: grey;
+    }
+</style>
+
+<body>
+<div>
+<h1>Employee Details</h1>
+<p>Employee ID: <span th:text="${employee.employeeId}"></span></p>
+<p>Name: <span th:text="${employee.name}"></span></p>
+<p>Email: <span th:text="${employee.email}"></span></p>
+<p>Location: <span th:text="${employee.location}"></span></p><br/>
+
+    <!--Link which is used to Add New Employee-->
+    <a href="/displayALL">Back to Employee List</a>
+
+</div>
+</body>
+</html>
